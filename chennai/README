@@ -1,0 +1,13 @@
+This is a yql demo with data pulled from Chennai Corporation Site. This
+data is hosted as CSV files on Google docs.
+
+Links:
+yql: http://developer.yahoo.com/yql/
+Chennai Corporation Site: http://www.chennaicorporation.gov.in/
+CSV files on Google Docs:
+
+Corporation Parks -
+http://spreadsheets.google.com/pub?key=trxxdnpWdn6qrO1SyEBT9Jg&single=true&gid=0&output=csv
+
+Zone Details -
+http://spreadsheets.google.com/pub?key=trxxdnpWdn6qrO1SyEBT9Jg&single=true&gid=0&output=csv

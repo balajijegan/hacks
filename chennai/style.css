@@ -1,0 +1,11 @@
+html,body{background:#999;color:#000;}
+#doc2,#doc{
+  font-family:calibri,sans-serif;background:#f8f8f8;
+  border:1em solid #f8f8f8;-moz-border-radius:5px;
+  -webkit-border-radius:5px;border-radius:5px;
+}
+h3{color:#036;font-size:200%;margin:10px 0;}
+h4{color:#060;font-size:150%;margin:10px 0;}
+ul{margin:0 1em;}
+li ul{margin:.5em 1em;}
+#ft { font-size:80%; text-align:right; }
