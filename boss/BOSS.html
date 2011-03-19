@@ -1,0 +1,119 @@
+<html>  
+
+<head><title>YQL and BOSS</title>  
+<style type='text/css'>  
+#web{ width: 20%; margin-left: 0%; border: 1px solid gray; padding: 5px;  height: 80%; overflow: auto; float:left; clear:right;}    
+#news{ width: 20%; margin-left: 2%; border: 1px solid gray; padding: 5px; height: 80%; overflow: auto; float:left; clear:right;}    
+#images{ width: 20%; margin-left: 2%; border: 1px solid gray; padding: 5px; height: 80%; overflow: auto; float:left; clear:right;}    
+
+</style>  
+
+<script type='text/javascript'>
+
+function search(o) {
+
+	var apiendpoint = 'http://query.yahooapis.com/v1/public/yql?';
+	// diagnostics - remove if you don't need them
+	apiendpoint += '&diagnostics=true';
+
+	// format (json or xml)
+	apiendpoint += '&format=json';
+	var q = document.form1.q.value;
+
+	var types = [ 'web', 'news', 'images' ];
+
+	for ( var j in types ) {
+		var type = types[j];
+
+		var query = "select * from search." + type + " where query='" + q + "'";
+		var url = apiendpoint + "&q=" + encodeURIComponent(query);
+
+		// callback function (when format is json this triggers JSON-P-X output)
+		url += '&callback=process' + type;
+
+		var s = document.createElement('script');
+		s.setAttribute('src',url);
+		document.getElementsByTagName('head')[0].appendChild(s);
+
+		var output = document.createElement('div');
+		output.setAttribute('id',type);
+		document.getElementById('search').parentNode.appendChild(output);
+
+		output.innerHTML = 'Loading&hellip;';
+	}
+}
+function processweb(o) {
+	var result = o.query.results.result;
+	var output='';
+
+	for (var i=0; i < result.length; i++ ) {
+		var abstract = result[i].abstract;
+		var title = result[i].title;
+		var clickurl = result[i].clickurl;
+		var dispurl = result[i].url;
+		output += '<div class="result"><a href="'  + clickurl + '">' +  title + '</a><br/>' + abstract + '<br><font color="green">' + dispurl + '</font></div>';
+	}
+	document.getElementById('web').innerHTML = output;
+}
+
+function processnews(o) {
+	var result = o.query.results.result;
+	var output='';
+
+	for (var i=0; i < result.length; i++ ) {
+		var abstract = result[i].abstract;
+		var title = result[i].title;
+		var clickurl = result[i].clickurl;
+		var dispurl = result[i].url;
+		output += '<div class="result"><a href="'  + clickurl + '">' +  title + '</a><br/>' + abstract + '<br><font color="green">' + dispurl + '</font></div>';
+	}
+	document.getElementById('news').innerHTML = output;
+}
+
+function processimages(o) {
+	var result = o.query.results.result;
+	var output='';
+
+	for (var i=0; i < result.length; i++ ) {
+		var abstract = result[i].abstract;
+		var title = result[i].title;
+		var clickurl = result[i].clickurl;
+		var dispurl = result[i].url;
+		output += '<div class="result"><img height=100 width=100 src="' + dispurl + '"><p></div>';
+		//output += '<div class="result"><a href="'  + clickurl + '">' +  title + '</a><br/>' + abstract + '<br><font color="green">' + dispurl + '</font></div>';
+	}
+	document.getElementById('images').innerHTML = output;
+}
+
+
+function news(o) {
+	var result = o.query.results.result;
+	var res_count = o.query.count > 10 ? 10 : o.query.count;
+	var output= '<h2><center>News</center></h2>';                
+	for(var i=0; i < res_count ; i++) {
+		var title = result[i].title;
+		var abs = result[i].abstract;
+		var url = result[i].url;
+		output = output + "<br><h3> <a href='" + url + "'>" + title + "</a></h3>" + abs;
+	}
+	document.getElementById('news').innerHTML = output;
+	document.getElementById('news').style.visibility = "true";
+}
+
+</script>  
+
+</head>  
+
+<body>
+<div id="search">
+<h1>Search</h1>
+<form id="form1" name="form1">
+Search for <input type="text" name="q" value="">
+<input type="button" value="submit" onclick="search(this)"
+
+</form>
+</div>
+
+</body>  
+</html> 
+
