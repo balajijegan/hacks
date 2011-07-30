@@ -1,0 +1,12 @@
+OAuth Demo using curlicue
+
+curlicue-setup https://api.login.yahoo.com/oauth/v2/get_request_token 'https://api.login.yahoo.com/oauth/v2/request_auth?oauth_token=$oauth_token' https://api.login.yahoo.com/oauth/v2/get_token yahoo-credentials
+
+1) Enter consumer key / secret.
+2) Paste URL in browser and authorize.
+3) Type Pin
+4) Voila
+
+Use the credentials to access:
+
+curlicue -f yahoo-credentials --  -s -o -  'http://social.yahooapis.com/v1/user/HXIQ2D4CYZVMZZJJTSJ2DD2Z7Q/profile/status?format=json'

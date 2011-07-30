@@ -1,0 +1,107 @@
+
+
+select * from auth.oauth.request_token where oauth_callback="oob" and oauth_version="1.0" and oauth_signature_method="HMAC-SHA1" and oauth_consumer_key="" and get_request_token_url="https://fireeagle.yahooapis.com/oauth/request_token" and consumer_secret="";
+
+
+https://fireeagle.yahoo.net/oauth/authorize?oauth_token<>&amp;oauth_token_secret=<>&amp;oauth_callback_confirmed=true
+
+
+
+
+select * from auth.oauth.access_token where oauth_version="1.0" and oauth_signature_method="HMAC-SHA1" and oauth_consumer_key="" and  get_access_token_url="https://fireeagle.yahooapis.com/oauth/access_token" and consumer_secret="" and oauth_token="" and token_secret="" and oauth_verifier=""
+
+
+use 'http://balajin.net/hacks/fireeagle.user.xml' as fireeagle; insert into fireeagle.user (oauth_token, oauth_token_secret, oauth_consumer_key, oauth_consumer_secret, lat, lon)  values (, ,  , , '12','77');
+
+use 'http://balajin.net/hacks/fireeagle.user.xml' as fireeagle; select * from fireeagle where oauth_token= and oauth_token_secret= and oauth_consumer_key= and oauth_consumer_secret=
+
+
+
+
+select * from auth.oauth.request_token where oauth_callback="test" and oauth_version="1.0" and oauth_signature_method="HMAC-SHA1" and oauth_consumer_key="" and get_request_token_url="https://fireeagle.yahooapis.com/oauth/request_token" and consumer_secret="";
+
+
+select * from auth.oauth.request_token where oauth_callback="http://balajin.eglbp.corp.yahoo.com/~balajin/hackday/2010/fireeagle-php-lib/example/walkthru.php?f=glcallback" and oauth_version="1.0" and oauth_signature_method="HMAC-SHA1" and oauth_consumer_key="balajin.net" and get_request_token_url="https://www.google.com/accounts/OAuthGetRequestToken?scope=https://www.googleapis.com/auth/latitude" and consumer_secret="";
+
+
+
+select * from auth.oauth.request_token where oauth_callback="test" and oauth_version="1.0" and oauth_signature_method="HMAC-SHA1" and oauth_consumer_key="" and get_request_token_url="https://fireeagle.yahooapis.com/oauth/request_token" and consumer_secret="";
+
+
+
+select * from twitter.oauth.requesttoken where oauth_consumer_key= and oauth_consumer_secret=;
+
+
+https://api.twitter.com/oauth/authorize?oauth_token=&amp;oauth_token_secret=&amp;oauth_callback_confirmed=true 
+
+
+
+select * from twitter.oauth.accesstoken where oauth_verifier= and oauth_consumer_key= and oauth_consumer_secret= and oauth_token= and oauth_token_secret=;
+
+select * from twitter.status where id='fakeyfakerson1' and oauth_consumer_key= and oauth_consumer_secret= and oauth_token= and oauth_token_secret=;
+
+
+delete from twitter.status where id= and oauth_consumer_key= and oauth_consumer_secret= and oauth_token=' and oauth_token_secret=;
+
+
+insert into twitter.status (status,oauth_consumer_key, oauth_consumer_secret,oauth_token,oauth_token_secret) values ('From YQL',,,',   )
+
+use 'http://balajin.net/hacks/yql/twitter.status.xml' as twitter.status.custom; insert into twitter.status.custom (status,oauth_consumer_key, oauth_consumer_secret,oauth_token,oauth_token_secret) values ('From YQL 2',,,,   )
+
+update social.profile.status set status='123' where guid=me;
+
+http://pulse.yahoo.com/y
+
+
+
+select * from auth.oauth.access_token where oauth_version="1.0A" and oauth_signature_method="HMAC-SHA1" and oauth_consumer_key="" and get_access_token_url="https://fireeagle.yahooapis.com/oauth/access_token" and consumer_secret="" and oauth_token="" and token_secret="" and oauth_verifier="";
+
+
+
+
+https://fireeagle.yahoo.net/oauth/authorize?oauth_token=&amp;oauth_token_secret=&amp;oauth_callback_confirmed=true
+
+
+
+
+
+
+
+https://fireeagle.yahooapis.com/api/0.1/user.xml?oauth_consumer_ke...
+
+https://fireeagle.yahooapis.com/api/0.1/user
+
+
+ https://fireeagle.yahooapis.com/api/0.1/user?oauth_consumer_key=&oauth_signature_method=HMAC-SHA1&oauth_version=1.0&oauth_token=&oauth_timestamp=1204588542&oauth_nonce=&oauth_signature=  
+
+
+use 'http://balajin.net/hacks/fireeagle.user.xml' as fireeagle; insert into fireeagle.user (oauth_token, oauth_token_secret, oauth_consumer_key, oauth_consumer_secret, lat, lon)  values (, ,  , , '12','77');
+
+use 'http://balajin.net/hacks/fireeagle.user.xml' as fireeagle; select * from fireeagle where oauth_token= and oauth_token_secret= and oauth_consumer_key= and oauth_consumer_secret=
+
+
+
+
+
+
+
+
+
+
+
+
+select * from auth.oauth.request_token where oauth_callback="http://balajin.eglbp.corp.yahoo.com/~balajin/hackday/2010/fireeagle-php-lib/example/walkthru.php?f=glcallback" and oauth_version="1.0" and oauth_signature_method="HMAC-SHA1" and oauth_consumer_key= and get_request_token_url="https://www.google.com/accounts/OAuthGetRequestToken?scope=https://www.googleapis.com/auth/latitude" and consumer_secret="";
+
+
+
+https://www.google.com/latitude/apps/OAuthAuthorizeToken?oauth_token=&domain=&oauth_callback_confirmed=true 
+
+
+
+
+
+
+insert into google.latitude.currentlocation(oauth_token, oauth_token_secret, oauth_consumer_key, oauth_consumer_secret, latitude, longitude) values(',,,, ,'12','77');
+
+
+use 'http://balajin.net/hacks/latitude/google.latitude.currentlocation.xml' as google.latitude.currentlocation; select * from google.latitude.currentlocation where oauth_consumer_key=' and oauth_consumer_secret='' and oauth_token='' and oauth_token_secret='';   
