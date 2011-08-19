@@ -2,4 +2,5 @@ A demo to fetch photos from flickr and show them on a map.
 
 Uses Flickr, YQL and Yahoo! Maps. 
 
+Make sure you add the APPID in index.html before you run the demo.
 
