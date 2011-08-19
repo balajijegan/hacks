@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script type="text/javascript" src=
+        "http://api.maps.yahoo.com/ajaxymap?v=3.8&appid=<Add your app id here>">
+        </script>
+        <style type="text/css">
+            #map{ 
+				height: 100%;
+            	width: 100%;
+            }
+        </style>
+        <title> Flickr, YQL and Maps</title>
+    </head>
+    <body>
+        <div id="map"></div><script type="text/javascript">
+        
+        // Create a Map that will be placed in the "map" div.
+        var map = new YMap(document.getElementById('map'));
+        // Add the ability to change between Sat, Hybrid, and Regular Maps
+        map.addTypeControl();     
+        // Add the zoom control. Long specifies a Slider versus a "+" and "-" zoom control
+        map.addZoomLong();            
+        // Add the Pan control to have North, South, East and West directional control
+        map.addPanControl();  
+        // Specifying the Map starting location and zoom level
+        map.drawZoomAndCenter("India", 13);
+        
+        function plotphotos(response) {
+        var results = response.query.results.photo;
+        for (var i=0;i<results.length;i++) {
+        var photopage = results[i].urls.url.content;
+        var id = results[i].id;
+        var title= results[i].title;
+        var farm = results[i].farm;
+        var server = results[i].server;
+        var secret = results[i].secret;
+        var latitude = results[i].location.latitude;
+        var longitude = results[i].location.longitude;
+        var geoPoint = new YGeoPoint(latitude,longitude);
+        var marker = new YMarker(geoPoint);
+        var imghtml = '';
+
+        imghtml += '<a href="' + photopage + '" title="' + title + '" target="_blank">';
+        imghtml +=  '"<img src="http://farm' + farm + '.static.flickr.com/' + server + '/' + id + '_' + secret + '_s.jpg"><\/a>';
+        imghtml += '<br /> <b>' + title + '</b>';
+        
+        marker.addAutoExpand(imghtml);
+        map.addOverlay(marker);
+        }
+        }
+        
+        
+        
+        </script>
+        <!-- Call YQL -->
+        <script type="text/javascript"
+        src="http://query.yahooapis.com/v1/public/yql?q=select%20urls.url%2Ctitle%2Cfarm%2Cid%2Cserver%2Csecret%2Clocation.latitude%2Clocation.longitude%20from%20flickr.photos.info%20where%20photo_id%20in%20(select%20id%20from%20flickr.photos.search(20)%20where%20has_geo%3D'true'%20and%20text%3D'lokpal')%20&amp;format=json&amp;diagnostics=true&amp;callback=plotphotos">
+        </script>
+	</body>
+</html> 
