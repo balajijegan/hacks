@@ -1,19 +1,24 @@
 <html>
     <head>
         <script type="text/javascript" src=
-        "http://api.maps.yahoo.com/ajaxymap?v=3.8&appid="<Get your appid from developer.yahoo.com and add it here>">
+        "http://api.maps.yahoo.com/ajaxymap?v=3.8&appid=Get Your AppId form developer.yahoo.com and add it here">
         </script>
         <style type="text/css">
             #map{ 
 		height: 75%;
-            	width: 60%;
+            	width: 55%;
 		float: left;
             }
 	
 	    #desc{
 		height: 75%;
-		width: 35%;
+		width: 45%;
 		float: right;
+            }
+	    #code {
+		position: relative;
+		margin-top: 15px;
+		}
 		}
         </style>
         <title> Flickr, YQL and Maps</title>
@@ -24,9 +29,16 @@
         <div id="map"></div>
 	<div id="desc">
 	<p><strong> Jan Lokpal Tracker, built using Flickr, YQL and Maps.</strong></p>
-	<p> This hack is a demo of a mashup created using YQL, Flickr and Maps. This mashup fetches geotagged photos related to Jan Lokpal from Flickr and displays them on an interactive map. The map is annotated with pins that indicate the locations. Hovering over these pins will bring up a thumbnail of the photograph, with the link to the photo page on Flickr.</p> </div>
+	<p> This hack is a demo of a mashup created using YQL, Flickr and Maps. This mashup fetches geotagged photos related to Jan Lokpal from Flickr and displays them on an interactive map. The map is annotated with pins that indicate the locations. Hovering over these pins will bring up a thumbnail of the photograph, with the link to the photo page on Flickr.</p> 
 
-	<p> Code available at <a href="https://github.com/balajijegan/hacks/tree/master/flickr-yql-maps-demo">Github</a> </p>
+	</div>
+
+	<h4>&nbsp;</h4>
+	<div id="code">
+	<h4> Code available at <a href="https://github.com/balajijegan/hacks/tree/master/flickr-yql-maps-demo">Github</a> </h4>
+	<h4> YQL queries used are described below. </h4>
+	<script src="https://gist.github.com/1157200.js?file=gistfile1.sql"></script>
+	</div>
         
 	<script type="text/javascript">
         // Create a Map that will be placed in the "map" div.
@@ -63,13 +75,15 @@
         map.addOverlay(marker);
         }
         }
-        
-        
-        
         </script>
+
         <!-- Call YQL -->
         <script type="text/javascript"
         src="http://query.yahooapis.com/v1/public/yql?q=select%20urls.url%2Ctitle%2Cfarm%2Cid%2Cserver%2Csecret%2Clocation.latitude%2Clocation.longitude%20from%20flickr.photos.info%20where%20photo_id%20in%20(select%20id%20from%20flickr.photos.search(20)%20where%20has_geo%3D'true'%20and%20text%3D'lokpal')%20&amp;format=json&amp;diagnostics=true&amp;callback=plotphotos">
         </script>
+
+	<!-- Fork me on Github Logo -->
+	<a href="http://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
+
 	</body>
 </html> 
